@@ -1,5 +1,5 @@
-from converter.mimic import MimicToRecordConverter
-from repository.mimic import MimicRepository
+from ehrpreper.converter.mimic import MimicToRecordConverter
+from ehrpreper.repository.mimic import MimicRepository
 
 
 class MimicProcessor:

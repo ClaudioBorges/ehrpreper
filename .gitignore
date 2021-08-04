@@ -1,13 +1,34 @@
+# Ignore IDE files
+.vscode
+.idea
+/.ehrpreper
+
+# Ignore the Environment
+env
+.tox
+venv
+.venv
+.python-version
+
+# Ignore coverage reports
+.coverage
+.coverage.*
+coverage.xml
+htmlcov
+
+# Ignore test reports
+.test-reports
+test-reports
+
+# Ignore Python cache and prebuilt things
+.cache
+__pycache__
+*.egg-info
 *.pyc
-*.pyo
-.installed.cfg
-bin
-develop-eggs
+build
+_build
 dist
-downloads
-eggs
-input-data/*
-lib
-lib64
-parts
-src/*.egg-info
+.pytest_cache
+
+# Ignore data file
+data/

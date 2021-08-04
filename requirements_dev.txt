@@ -1,0 +1,14 @@
+# Install with -U to keep all requirements up-to-date
+# code linting and formatting
+black
+# testing
+pytest
+pytest-cov
+pytest-sugar
+# MyPy
+mypy
+#Stubs
+lxml-stubs>=0.2.0
+pandas-stubs>=1.2.0
+types-setuptools
+types-toml

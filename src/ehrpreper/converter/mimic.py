@@ -1,5 +1,5 @@
 import pandas as pd
-from entity import DocumentEntity
+from ehrpreper.entity import DocumentEntity
 
 
 class MimicToRecordConverter:
