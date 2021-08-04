@@ -12,4 +12,4 @@ class MimicRepository:
         return pd.read_csv(os.path.join(self.base_path, "DIAGNOSES_ICD.csv"))
 
     def find_note_events(self):
-        return pd.read_csv(os.path.join(self.base_path, "NOTEEVENTS.csv"))
+        return pd.read_csv(os.path.join(self.base_path, "NOTEEVENTS.csv"), nrows=5)
