@@ -9,7 +9,9 @@ class MimicRepository:
         self.base_path = base_path
 
     def find_diagnoses_icd(self):
-        return pd.read_csv(os.path.join(self.base_path, "DIAGNOSES_ICD.csv"))
+        return pd.read_csv(
+            os.path.join(self.base_path, "DIAGNOSES_ICD.csv"), dtype="str"
+        )
 
     def find_note_events(self):
-        return pd.read_csv(os.path.join(self.base_path, "NOTEEVENTS.csv"), nrows=5)
+        return pd.read_csv(os.path.join(self.base_path, "NOTEEVENTS.csv"), dtype="str")

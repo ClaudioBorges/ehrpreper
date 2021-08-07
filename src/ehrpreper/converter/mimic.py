@@ -9,7 +9,7 @@ class MimicToRecordConverter:
     def convert(self, note_events, diagnoses_icd):
         f_ne = self._filterNoteEvents(note_events)
         f_di = self._filterDiagnosesIcd(diagnoses_icd)
-        merged = self._merge(f_ne, f_di)
+        merged = self._merge(f_ne, f_di).dropna()
         grouped = (
             merged.groupby(["HADM_ID", "TEXT"])
             .agg(tuple)
