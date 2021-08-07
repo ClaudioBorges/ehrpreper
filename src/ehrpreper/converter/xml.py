@@ -1,4 +1,5 @@
 from lxml.builder import E
+import logging
 
 
 class DocumentToXmlConverter:
@@ -25,6 +26,7 @@ class ModelToXmlConverter:
         self._documentConverter = documentToXmlConverter
 
     def convert(self, modelEntity):
+        logging.info(f"{self.__class__.__name__} converting...")
         xmlLanguage = self._makeXmlLanguage(modelEntity.language)
         xmlDocuments = self._makeXmlDocuments(modelEntity.documents)
         return self._makeModel(xmlLanguage, xmlDocuments)

@@ -2,6 +2,7 @@ from argparse import ArgumentParser
 from argparse import RawTextHelpFormatter
 from ehrpreper.config import *
 from ehrpreper.processor.xml import XmlProcessor
+import logging
 
 
 def make_parser():
@@ -22,12 +23,32 @@ def make_parser():
         default="../data/output/output.xml",
         help=r'the prepared xml file (default: "../data/output/output.xml")',
     )
+    parser.add_argument(
+        "-v",
+        "--verbose",
+        action="count",
+        default=0,
+        help=r"increse output verbosity",
+    )
     parser.add_argument("dataset", choices=DATASETS, help="the dataset type")
     return parser
+
+
+def set_logging_level(verbose):
+    levels = [logging.WARNING, logging.INFO, logging.DEBUG]
+    level = levels[min(len(levels) - 1, verbose)]  # capped to number of levels
+    logging.basicConfig(level=level, format="%(asctime)s %(levelname)s %(message)s")
 
 
 def cli():
     parser = make_parser()
     args = parser.parse_args()
+    set_logging_level(args.verbose)
+
+    logging.info(
+        f"Started (dataset={args.dataset}, input_path={args.input_path},"
+        f" output_file={args.output_file})"
+    )
     processor = XmlProcessor()
     processor.process(args.dataset, args.input_path, args.output_file)
+    logging.info("Finished")

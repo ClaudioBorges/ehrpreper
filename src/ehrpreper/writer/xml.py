@@ -1,3 +1,4 @@
+import logging
 import lxml
 
 
@@ -6,6 +7,9 @@ class XmlWriter:
         pass
 
     def write(self, xml, output_file):
+        logging.info(
+            f"{self.__class__.__name__} writing (output_file={output_file})..."
+        )
         with open(output_file, "wb") as f:
             content = lxml.etree.tostring(
                 xml,

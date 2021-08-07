@@ -3,6 +3,7 @@ from ehrpreper.converter.xml import ModelToXmlConverter
 from ehrpreper.entity import ModelEntity
 from ehrpreper.writer.xml import XmlWriter
 from lxml.etree import tostring
+import logging
 
 
 class XmlProcessor:
@@ -17,6 +18,7 @@ class XmlProcessor:
         self.converter = converter
 
     def process(self, config_key, input_path, output_file):
+        logging.info(f"{self.__class__.__name__} processing...")
         cfg = self.config_map[config_key]
         documents = cfg.processor.process(input_path)
         model = ModelEntity(language=cfg.language, documents=documents)
