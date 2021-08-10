@@ -1,7 +1,7 @@
 import sys
 
 # Expose the public API.
-# Nothing to exposure
+from ehrpreper.api import load
 
 # Check major python version
 if sys.version_info[0] < 3:

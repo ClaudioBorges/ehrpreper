@@ -1,4 +1,4 @@
-from ehrpreper.entity import DocumentEntity
+from ehrpreper.core.entity import DocumentEntity
 import logging
 import pandas as pd
 

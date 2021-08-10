@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Model>
+  <Language>en-US</Language>
+  <Document>
+    <Content>c1</Content>
+    <Annotation>c1_a1</Annotation>
+    <Annotation>c1_a2</Annotation>
+  </Document>
+  <Document>
+    <Content>c2</Content>
+    <Annotation>c2_a1</Annotation>
+  </Document>
+  <Document>
+    <Content>c3</Content>
+    <Annotation>c3_a1</Annotation>
+    <Annotation>c3_a2</Annotation>
+    <Annotation>c3_a3</Annotation>
+  </Document>
+</Model>

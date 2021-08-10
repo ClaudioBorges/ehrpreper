@@ -1,4 +1,4 @@
-from ehrpreper.processor.mimic import MimicProcessor
+from ehrpreper.core.processor.mimic import MimicProcessor
 import collections
 
 Config = collections.namedtuple("Config", ["processor", "language"])

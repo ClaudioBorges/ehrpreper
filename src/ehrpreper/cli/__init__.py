@@ -1,7 +1,7 @@
 from argparse import ArgumentParser
 from argparse import RawTextHelpFormatter
-from ehrpreper.config import *
-from ehrpreper.processor.xml import XmlProcessor
+from ehrpreper.core.config import *
+from ehrpreper.core.processor.xml import XmlProcessor
 import logging
 
 

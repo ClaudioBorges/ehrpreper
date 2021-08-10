@@ -1,7 +1,7 @@
-from ehrpreper.config import DATASET_CONFIG_MAP
-from ehrpreper.converter.xml import ModelToXmlConverter
-from ehrpreper.entity import ModelEntity
-from ehrpreper.writer.xml import XmlWriter
+from ehrpreper.core.config import DATASET_CONFIG_MAP
+from ehrpreper.core.converter.xml import ModelToXmlConverter
+from ehrpreper.core.entity import ModelEntity
+from ehrpreper.core.writer.xml import XmlWriter
 from lxml.etree import tostring
 import logging
 

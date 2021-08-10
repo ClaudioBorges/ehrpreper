@@ -1,7 +1,7 @@
 """The test file for entity"""
 
-from ehrpreper.entity import DocumentEntity
-from ehrpreper.entity import ModelEntity
+from ehrpreper.core import DocumentEntity
+from ehrpreper.core import ModelEntity
 import pytest
 
 

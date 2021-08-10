@@ -1,5 +1,5 @@
-from ehrpreper.converter.mimic import MimicToRecordConverter
-from ehrpreper.repository.mimic import MimicRepository
+from ehrpreper.core.converter.mimic import MimicToRecordConverter
+from ehrpreper.core.repository.mimic import MimicRepository
 import logging
 
 
