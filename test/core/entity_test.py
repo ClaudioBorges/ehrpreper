@@ -2,7 +2,6 @@
 
 from ehrpreper.core import DocumentEntity
 from ehrpreper.core import ModelEntity
-import pytest
 
 
 def test_model_entity():

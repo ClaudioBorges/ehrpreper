@@ -3,7 +3,6 @@
 from ehrpreper.api import load
 from ehrpreper.core import DocumentEntity
 from ehrpreper.core import ModelEntity
-import pytest
 
 
 DOCUMENT_MODEL_1 = DocumentEntity("c1", ("c1_a1", "c1_a2"))
