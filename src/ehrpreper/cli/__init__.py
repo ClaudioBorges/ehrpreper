@@ -24,6 +24,12 @@ def make_parser():
         help=r'the prepared xml file (default: "../data/output/output.xml")',
     )
     parser.add_argument(
+        "-x",
+        "--extract",
+        action="store_true",
+        help=r"extract before preparing",
+    )
+    parser.add_argument(
         "-v",
         "--verbose",
         action="count",
@@ -50,5 +56,5 @@ def cli():
         f" output_file={args.output_file})"
     )
     processor = XmlProcessor()
-    processor.process(args.dataset, args.input_path, args.output_file)
+    processor.process(args.dataset, args.input_path, args.output_file, args.extract)
     logging.info("Finished")

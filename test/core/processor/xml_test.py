@@ -15,7 +15,7 @@ def test_xml_processor():
     processor.process.return_value = documents
     config = {"key": Config(processor=processor, language="language")}
     xml_processor = XmlProcessor(config_map=config, writer=writer, converter=converter)
-    xml_processor.process("key", "input_path", "output_file")
+    xml_processor.process("key", "input_path", "output_file", False)
 
     processor.process.called_once_with("input_path")
     converter.convert.called_once_with(
