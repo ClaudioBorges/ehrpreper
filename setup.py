@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-"""The script for setting up sqlfluff."""
+"""The script for setting up ehrpreper."""
 
 
 import sys
