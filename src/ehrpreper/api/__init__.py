@@ -5,10 +5,8 @@ from ehrpreper.core import ModelEntity
 import lxml.etree as E
 
 
-"""Load an ehrpreper_file in batches"""
-
-
 def load(path, batch_size=1):
+    """Load an ehrpreper_file in batches"""
     language = None
     documents = ()
     content = None
@@ -33,20 +31,16 @@ def load(path, batch_size=1):
         yield ModelEntity(language, documents)
 
 
-"""Content and Annotation (date) based generator for EhrPreper ModelEntity"""
-
-
 def model_data_generator(model):
+    """Content and Annotation (date) based generator for EhrPreper ModelEntity"""
     for document in model.documents:
         yield document.content
         for annotation in document.annotations:
             yield annotation
 
 
-"""Content and Annotation (date) based generator for ehrpreper_files"""
-
-
 def data_generator(*ehrpreper_files):
+    """Content and Annotation (date) based generator for ehrpreper_files"""
     for ehrpreper_file in ehrpreper_files:
         for model in load(ehrpreper_file):
             for data in model_data_generator(model):
