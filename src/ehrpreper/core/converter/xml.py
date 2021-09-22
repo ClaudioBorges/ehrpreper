@@ -28,14 +28,18 @@ class ModelToXmlConverter:
     def convert(self, modelEntity):
         logging.info(f"{self.__class__.__name__} converting...")
         xmlLanguage = self._makeXmlLanguage(modelEntity.language)
+        xmlSize = self._makeXmlSize(modelEntity.num_documents)
         xmlDocuments = self._makeXmlDocuments(modelEntity.documents)
-        return self._makeModel(xmlLanguage, xmlDocuments)
+        return self._makeModel(xmlLanguage, xmlSize, xmlDocuments)
 
-    def _makeModel(self, xmlLanguage, xmlDocuments):
-        return E.Model(xmlLanguage, *xmlDocuments)
+    def _makeModel(self, xmlLanguage, xmlSize, xmlDocuments):
+        return E.Model(xmlLanguage, xmlSize, *xmlDocuments)
 
     def _makeXmlLanguage(self, language):
         return E.Language(language)
+
+    def _makeXmlSize(self, num_documents):
+        return E.Size(str(num_documents))
 
     def _makeXmlDocuments(self, documents):
         return [self._documentConverter.convert(document) for document in documents]

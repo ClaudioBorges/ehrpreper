@@ -36,6 +36,13 @@ def make_parser():
         default=0,
         help=r"increse output verbosity",
     )
+    parser.add_argument(
+        "-p",
+        "--parts",
+        type=int,
+        default=1,
+        help=r"number of parts. p files are created using the suffix <part_p> (default: 1)",
+    )
     parser.add_argument("dataset", choices=DATASETS, help="the dataset type")
     return parser
 
@@ -56,5 +63,11 @@ def cli():
         f" output_file={args.output_file})"
     )
     processor = XmlProcessor()
-    processor.process(args.dataset, args.input_path, args.output_file, args.extract)
+    processor.process(
+        args.dataset,
+        args.input_path,
+        args.output_file,
+        args.extract,
+        n_parts=args.parts,
+    )
     logging.info("Finished")

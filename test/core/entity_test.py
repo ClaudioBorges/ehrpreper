@@ -7,7 +7,7 @@ from ehrpreper.core import ModelEntity
 def test_model_entity():
     lang = "lang"
     docs = "docs"
-    model = ModelEntity(lang, docs)
+    model = ModelEntity(lang, len(docs), docs)
     assert model.language == lang
     assert model.documents == docs
 

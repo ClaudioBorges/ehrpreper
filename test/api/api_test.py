@@ -29,7 +29,7 @@ def _load_and_assert(batch_size, docs_batched):
     for model, documents in zip(
         load(MOCKED_DOCUMENT_PATH, batch_size=batch_size), docs_batched
     ):
-        assert model == ModelEntity(LANGUAGE, documents)
+        assert model == ModelEntity(LANGUAGE, len(documents), documents)
 
 
 def test_load_non_batched():

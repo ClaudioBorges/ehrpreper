@@ -24,11 +24,11 @@ def load(path, batch_size=1):
             content = None
             annotations = ()
             if len(documents) == batch_size:
-                yield ModelEntity(language, documents)
+                yield ModelEntity(language, len(documents), documents)
                 documents = ()
 
     if len(documents) > 0:
-        yield ModelEntity(language, documents)
+        yield ModelEntity(language, len(documents), documents)
 
 
 def model_data_generator(model):

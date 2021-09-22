@@ -6,7 +6,7 @@ from unittest.mock import Mock
 
 def test_xml_processor():
     converter = Mock()
-    documents = Mock()
+    documents = [i for i in range(10)]
     processor = Mock()
     writer = Mock()
     xml = Mock()
@@ -19,6 +19,8 @@ def test_xml_processor():
 
     processor.process.called_once_with("input_path")
     converter.convert.called_once_with(
-        ModelEntity(language="language", documents=documents)
+        ModelEntity(
+            language="language", num_documents=len(documents), documents=documents
+        )
     )
     writer.write.called_once_with(xml, "output_file")

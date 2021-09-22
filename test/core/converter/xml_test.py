@@ -20,11 +20,13 @@ def _assert_xml_document(xml, doc):
 def _assert_xml_model(xml, model):
     assert xml.tag == "Model"
     childrens = xml.getchildren()
-    assert len(childrens) == len(model.documents) + 1
+    assert len(childrens) == len(model.documents) + 2
     assert childrens[0].tag == "Language"
     assert childrens[0].text == model.language
+    assert childrens[1].tag == "Size"
+    assert childrens[1].text == str(model.num_documents)
     for idx, document in enumerate(model.documents):
-        _assert_xml_document(childrens[idx + 1], document)
+        _assert_xml_document(childrens[idx + 2], document)
 
 
 def test_document_to_xml_converter():
@@ -36,6 +38,7 @@ def test_document_to_xml_converter():
 def test_model_to_xml_converter():
     model = ModelEntity(
         "language,",
+        2,
         [
             DocumentEntity("c1", ["a1", "a2", "a3"]),
             DocumentEntity("c1", ["a1", "a2", "a3"]),
