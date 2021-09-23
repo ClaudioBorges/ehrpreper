@@ -45,3 +45,24 @@ def data_generator(*ehrpreper_files):
         for model in load(ehrpreper_file):
             for data in model_data_generator(model):
                 yield data
+
+
+def size(*ehrpreper_files):
+    """Number of DocumentEntity"""
+    return sum(
+        [
+            1
+            for ehrpreper_file in ehrpreper_files
+            for model in load(ehrpreper_file, batch_size=1)
+        ]
+    )
+
+
+def document_entity_generator(*ehrpreper_files):
+    """Generator of DocumentEntity"""
+    return (
+        document
+        for ehrpreper_file in ehrpreper_files
+        for model in load(ehrpreper_file)
+        for document in model.documents
+    )

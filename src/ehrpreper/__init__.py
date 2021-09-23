@@ -1,9 +1,7 @@
 import sys
 
 # Expose the public API.
-from ehrpreper.api import load
-from ehrpreper.api import model_data_generator
-from ehrpreper.api import data_generator
+from ehrpreper.api import *
 
 # Check major python version
 if sys.version_info[0] < 3:
