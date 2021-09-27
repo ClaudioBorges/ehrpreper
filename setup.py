@@ -47,7 +47,7 @@ setup(
         # Core
         "configparser",
         "lxml>=4.6.3",
-        "pandas>=1.2.5",
+        "pandas",
     ],
     entry_points={
         "console_scripts": [
