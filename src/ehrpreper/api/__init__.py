@@ -70,20 +70,21 @@ def document_entity_generator(*ehrpreper_files):
 
 
 class Icd9To10Converter:
+    ICD_9_10_MAP = None
+
     def __init__(self):
-        self._icd9_10_map = {}
-        self._icd10_9_map = {}
+        if Icd9To10Converter.ICD_9_10_MAP is None:
+            map_file = pkg_resources.resource_filename("ehrpreper", "2018_I9gem.txt")
+            with open(map_file) as file:
+                Icd9To10Converter.ICD_9_10_MAP = {
+                    self._line_to_icd9(line): self._line_to_icd10(line) for line in file
+                }
 
-        map_file = pkg_resources.resource_filename("ehrpreper", "2018_I9gem.txt")
-        with open(map_file) as file:
-            for line in file:
-                icd9 = line[:6].strip()
-                icd10 = line[6:14].strip()
-                self._icd9_10_map[icd9] = icd10
-                self._icd10_9_map[icd10] = icd9
+    def _line_to_icd9(self, line):
+        return line[:6].strip()
 
-    def to_icd10(self, icd9):
-        return self._icd9_10_map.get(icd9, "")
+    def _line_to_icd10(self, line):
+        return line[6:14].strip()
 
-    def to_icd9(self, icd10):
-        return self._icd10_9_map.get(icd10, "")
+    def convert(self, icd9):
+        return Icd9To10Converter.ICD_9_10_MAP.get(icd9, "")

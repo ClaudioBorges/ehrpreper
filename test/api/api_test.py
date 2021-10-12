@@ -73,8 +73,7 @@ def test_document_entity_generator():
 
 
 def test_convert_icd():
-    conv = api.Icd9To10Converter()
     icd9 = "0031"
     icd10 = "A021"
-    assert conv.to_icd10(icd9) == icd10
-    assert conv.to_icd9(icd10) == icd9
+    converter = api.Icd9To10Converter()
+    assert converter.convert(icd9) == icd10
