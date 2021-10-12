@@ -3,6 +3,7 @@
 from ehrpreper.core import DocumentEntity
 from ehrpreper.core import ModelEntity
 import lxml.etree as E
+import pkg_resources
 
 
 def load(path, batch_size=1):
@@ -66,3 +67,23 @@ def document_entity_generator(*ehrpreper_files):
         for model in load(ehrpreper_file)
         for document in model.documents
     )
+
+
+class Icd9To10Converter:
+    def __init__(self):
+        self._icd9_10_map = {}
+        self._icd10_9_map = {}
+
+        map_file = pkg_resources.resource_filename("ehrpreper", "2018_I9gem.txt")
+        with open(map_file) as file:
+            for line in file:
+                icd9 = line[:6].strip()
+                icd10 = line[6:14].strip()
+                self._icd9_10_map[icd9] = icd10
+                self._icd10_9_map[icd10] = icd9
+
+    def to_icd10(self, icd9):
+        return self._icd9_10_map.get(icd9, "")
+
+    def to_icd9(self, icd10):
+        return self._icd10_9_map.get(icd10, "")

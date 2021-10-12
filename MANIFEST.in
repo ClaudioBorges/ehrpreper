@@ -1,3 +1,4 @@
 include README.md LICENSE
 include test-data
 include src/ehrpreper/config.ini
+include src/ehrpreper/2018_I9gem.txt
