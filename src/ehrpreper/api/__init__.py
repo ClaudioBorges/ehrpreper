@@ -86,5 +86,5 @@ class Icd9To10Converter:
     def _line_to_icd10(self, line):
         return line[6:14].strip()
 
-    def convert(self, icd9):
-        return Icd9To10Converter.ICD_9_10_MAP.get(icd9, "")
+    def convert(self, icd9, default="UNK"):
+        return Icd9To10Converter.ICD_9_10_MAP.get(icd9, default)

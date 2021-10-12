@@ -77,3 +77,4 @@ def test_convert_icd():
     icd10 = "A021"
     converter = api.Icd9To10Converter()
     assert converter.convert(icd9) == icd10
+    assert converter.convert("something") == "UNK"
